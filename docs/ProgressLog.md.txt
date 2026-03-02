@@ -1,0 +1,5 @@
+# Progress Log
+## 3/2/2026
+- Added basic character movement and arena bounds
+- Git and System issues resolved
+- Wave spawner skeleton tomorrow
