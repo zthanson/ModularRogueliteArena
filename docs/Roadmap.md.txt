@@ -1,0 +1,15 @@
+# Roadmap
+
+## M1: Core Loop
+- Move
+- Basic Combat
+- Waves
+
+## M2: Roguelite Drafting
+- Ability Selection
+- Modifiers/Status effects
+
+## M3: Networking Spike
+- Pick Library
+- Sync Core State
+- Simple Co-op test

@@ -1,0 +1,20 @@
+# Architecture
+
+## MVC Mapping
+- Model = data/state
+- View = visuals/UI
+- Controller = input + orchestration
+
+## Core Modules
+- PlayerModel
+- PlayerController
+- PlayerView
+- WaveManager
+- EnemyController
+- EventBus
+
+## Event List
+- OnHealthChanged
+- OnEnemyKilled
+- OnWaveStarted
+- OnWaveEnded
