@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using MRArena.Models;
 
 namespace MRArena.Controllers
@@ -22,11 +23,25 @@ namespace MRArena.Controllers
         {
             if (Model == null) return;
 
-            // Old Input system (simple, works out of the box)
-            float x = Input.GetAxisRaw("Horizontal");
-            float y = Input.GetAxisRaw("Vertical");
+            Vector2 input = Vector2.zero;
 
-            var input = new Vector2(x, y);
+            var keyboard = Keyboard.current;
+
+            if (keyboard != null)
+            {
+                if (keyboard.wKey.isPressed || keyboard.upArrowKey.isPressed)
+                    input.y += 1;
+
+                if (keyboard.sKey.isPressed || keyboard.downArrowKey.isPressed)
+                    input.y -= 1;
+
+                if (keyboard.aKey.isPressed || keyboard.leftArrowKey.isPressed)
+                    input.x -= 1;
+
+                if (keyboard.dKey.isPressed || keyboard.rightArrowKey.isPressed)
+                    input.x += 1;
+            }
+
             Model.MoveInput = input;
 
             if (input.sqrMagnitude > 0.0001f)
@@ -48,6 +63,5 @@ namespace MRArena.Controllers
             }
         }
     }
-
 }
 

@@ -369,8 +369,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f0f3dc82b6ef25448b451a1b0836e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  minBounds: {x: -8, y: -4}
-  maxBounds: {x: 8, y: 4}
+  minBounds: {x: -8.8, y: -4.75}
+  maxBounds: {x: 8.8, y: 4.75}
 --- !u!4 &1288895325
 Transform:
   m_ObjectHideFlags: 0
