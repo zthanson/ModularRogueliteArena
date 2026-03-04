@@ -1,16 +1,30 @@
 using UnityEngine;
+using TMPro;
+using MRArena.Systems.Waves;
 
-public class HUDView : MonoBehaviour
+namespace MRArena.Views
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class HUDView : MonoBehaviour
     {
-        
-    }
+        [SerializeField] private TMP_Text waveText;
+        [SerializeField] private WaveManager waveManager;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private void OnEnable()
+        {
+            if (waveManager != null)
+                waveManager.OnWaveStarted += HandleWaveStarted;
+        }
+
+        private void OnDisable()
+        {
+            if (waveManager != null)
+                waveManager.OnWaveStarted -= HandleWaveStarted;
+        }
+
+        private void HandleWaveStarted(int waveNumber)
+        {
+            if (waveText != null)
+                waveText.text = $"Wave: {waveNumber}";
+        }
     }
 }

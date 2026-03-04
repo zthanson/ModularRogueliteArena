@@ -15,3 +15,4 @@ MonoBehaviour:
   waveNumber: 1
   enemyCount: 5
   spawnInterval: 1
+  enemyPrefab: {fileID: 3188591642640671237, guid: a486f4ad3e838ab4594659982af76e8a, type: 3}

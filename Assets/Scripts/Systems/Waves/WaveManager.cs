@@ -10,9 +10,12 @@ namespace MRArena.Systems.Waves
     {
         [Header("Wave Configs")]
         [SerializeField] private List<WaveConfigSO> waves = new();
+        [SerializeField] private List<SpawnPoint> spawnPoints = new();
 
         [Header("Debug Controls")]
         [SerializeField] private bool autoStartWaveOnPlay = true;
+
+        [SerializeField] private Transform enemyParent;
 
         public event Action<int> OnWaveStarted;
         public event Action<int> OnWaveEnded;
@@ -59,6 +62,9 @@ namespace MRArena.Systems.Waves
 
             var wave = waves[CurrentWaveIndex];
             IsWaveRunning = true;
+
+            var spawn = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Count)];
+            Instantiate(wave.enemyPrefab, spawn.Position, Quaternion.identity, enemyParent);
 
             Debug.Log($"Wave {wave.waveNumber} started (EnemyCount={wave.enemyCount}, Interval={wave.spawnInterval})");
             OnWaveStarted?.Invoke(wave.waveNumber);

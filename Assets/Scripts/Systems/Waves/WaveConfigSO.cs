@@ -8,6 +8,8 @@ namespace MRArena.Systems.Waves
         [Min(1)] public int waveNumber = 1;
         [Min(0)] public int enemyCount = 5;
         [Min(0f)] public float spawnInterval = 1f;
+
+        public GameObject enemyPrefab;
     }
 }
 
